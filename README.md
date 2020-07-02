@@ -54,5 +54,27 @@ https://www.jianshu.com/p/21231847fe81
 
 2. 安装并运行链码
 
-- 将编写的链码放到fabric-sample/chaincode/文件夹下
+- 将编写的链码放到
+/home/GoFile/src/github.com/hyperledger/fabric/scripts/fabric-samples/chaincode/developChaincode文件夹下
+- docker exec -it chaincode sh 进入chaincode容器
 - ls即可查看到自己的链码
+- 编译自己的链码再启动
+   以官方的例子为例
+
+        cd chaincode_example02/go
+        go build -o chaincode_example02
+        CORE_PEER_ADDRESS=peer:7052 CORE_CHAINCODE_ID_NAME=mycc:0 ./chaincode_example02
+        
+- 安装链码
+   新启动终端<br>
+   docker exec -it cli bash <br>
+   peer chaincode install -p chaincodedev/chaincode/developChaincode -n testcc -v 0
+   `注意这里的-p 对应的值会默认加上/opt/gopath/src/`,所以指定的时候需要注意
+   
+- 实例化代码
+    
+    peer chaincode instantiate -n testcc -C myc -v 0 -c '{"Args":["init"]}'
+
+- 调用链码
+
+     
