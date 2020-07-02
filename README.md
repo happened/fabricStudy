@@ -37,3 +37,22 @@ shim包提供了如下几种类型的接口，ChaincodeStubInterface
 - 交易信息获取api
 - 对私密数据操作的api （private data)
 - 其他api（包括事件设置，调用其他链码操作）
+
+
+## 如何在开发模式测试链码
+
+https://www.jianshu.com/p/21231847fe81
+
+1. fabric提供了基础的测试环境
+
+    进入fabric-sample/chaincode-docker-devmode文件夹下,执行以下命令
+
+        docker-compose -f docker-compose-simple.yaml up
+
+    如果报: ERROR: An HTTP request took too long to complete,注释掉`docker-compose
+-simple.yaml`的tty:true即可。
+
+2. 安装并运行链码
+
+- 将编写的链码放到fabric-sample/chaincode/文件夹下
+- ls即可查看到自己的链码
