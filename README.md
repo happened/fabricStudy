@@ -76,5 +76,12 @@ https://www.jianshu.com/p/21231847fe81
     peer chaincode instantiate -n testcc -C myc -v 0 -c '{"Args":["init"]}'
 
 - 调用链码
-
+    
+    调用转账方法<br>
+    peer chaincode invoke -n testcc -c '{"Args":["invoke","a","b","300"]}' -C myc
+    调用查询方法<br>
+    peer chaincode invoke -n testcc -c '{"Args":["query","a"]}' -C myc
+    调用删除方法<br>
+    peer chaincode invoke -n testcc -c '{"Args":["delete","b"]}' -C myc
+    
      
